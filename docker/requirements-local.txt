@@ -1,0 +1,3 @@
+contextlib2
+retry
+git+https://github.com/clintonhealthaccess/superset-patchup.git

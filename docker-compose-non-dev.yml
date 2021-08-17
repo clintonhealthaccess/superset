@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-x-superset-image: &superset-image apache/superset:latest-dev
+x-superset-image: &superset-image apache/superset:1.2.0
 x-superset-depends-on: &superset-depends-on
   - db
   - redis
@@ -23,7 +23,7 @@ x-superset-volumes: &superset-volumes
   - ./docker:/app/docker
   - superset_home:/app/superset_home
 
-version: "3.7"
+version: "3.4"
 services:
   redis:
     image: redis:latest
@@ -33,10 +33,12 @@ services:
       - redis:/data
 
   db:
-    env_file: docker/.env
+    env_file: docker/.env-non-dev
     image: postgres:10
     container_name: superset_db
     restart: unless-stopped
+    ports:
+      - "15433:5432"
     volumes:
       - db_home:/var/lib/postgresql/data
 
@@ -88,3 +90,4 @@ volumes:
     external: false
   redis:
     external: false
+
