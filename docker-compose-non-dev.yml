@@ -52,7 +52,9 @@ services:
     ports:
       - 8088:8088
     depends_on: *superset-depends-on
-    volumes: *superset-volumes
+    volumes:
+      - ./docker:/app/docker
+      - superset_home:/app/superset_home
 
   superset-init:
     image: *superset-image
