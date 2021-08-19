@@ -8,6 +8,6 @@ export COMPOSE_INTERACTIVE_NO_CLI=1
 /usr/bin/docker-compose -f docker-compose-non-dev.yml kill
 /usr/bin/docker-compose -f docker-compose-non-dev.yml down
 /usr/bin/docker-compose -f docker-compose-non-dev.yml pull
-/usr/bin/docker-compose -f docker-compose-non-dev.yml up -d
+# /usr/bin/docker-compose -f docker-compose-non-dev.yml up -d
 
 docker cp docker superset_app:/app/.
